@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900">
+    <h1 class="text-4xl font-extrabold text-blue-700 dark:text-blue-400 mb-6 tracking-tight drop-shadow-lg">Tic Tac Toe
+    </h1>
+    <div class="grid grid-cols-3 grid-rows-3 gap-1 w-64 h-64 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg"
+        id="board">
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="0"></div>
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="1"></div>
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="2"></div>
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="3"></div>
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="4"></div>
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="5"></div>
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="6"></div>
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="7"></div>
+        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+            data-index="8"></div>
+    </div>
+    <div class="status text-lg font-semibold text-gray-800 dark:text-gray-200 mt-6 mb-2" id="status">X's turn
+    </div>
+    <button
+        class="reset-btn bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded shadow transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        id="resetBtn">Reset Game</button>
+    <script>
+        // Base JS for future logic
+        const board = document.getElementById('board');
+        const status = document.getElementById('status');
+        const resetBtn = document.getElementById('resetBtn');
+        // Game logic will go here
+    </script>
+</body>
+
+</html>

@@ -2,6 +2,16 @@
 
 A simple implementation of the classic Tic-Tac-Toe game.
 
+## To-Do List
+- [ ] Implement game logic
+- [ ] Create a responsive game board
+- [ ] Add player turn indication
+- [ ] Detect win conditions
+- [ ] Implement draw condition
+- [ ] Add AI opponent (optional)
+- [ ] Improve UI/UX with animations
+- [ ] Add sound effects
+
 ## Features
 
 - Two-player mode

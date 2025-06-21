@@ -15,3 +15,15 @@ body {
         color: #f1f1f1;
     }
 }
+
+/* Optional: Make buttons a bit more tappable */
+button {
+    touch-action: manipulation;
+    min-height: 44px;
+    /* recommended tap target size */
+}
+
+/* Remove fixed height on body if using Tailwind for layout */
+body {
+    height: auto;
+}

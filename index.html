@@ -4,46 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Tic Tac Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900">
-    <h1 class="text-4xl font-extrabold text-blue-700 dark:text-blue-400 mb-6 tracking-tight drop-shadow-lg">Tic Tac Toe
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen flex flex-col items-center justify-center px-4">
+    <h1 class="text-4xl font-extrabold text-blue-700 dark:text-blue-400 mb-8 tracking-tight drop-shadow-lg">
+        Tic Tac Toe
     </h1>
-    <div class="grid grid-cols-3 grid-rows-3 gap-1 w-64 h-64 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg"
-        id="board">
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="0"></div>
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="1"></div>
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="2"></div>
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="3"></div>
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="4"></div>
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="5"></div>
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="6"></div>
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="7"></div>
-        <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
-            data-index="8"></div>
+    <div class="msg-container fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl p-8 flex flex-col items-center">
+            <p id="msg" class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">Winner</p>
+            <button id="new-btn"
+                class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded shadow transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                New Game
+            </button>
+        </div>
     </div>
-    <div class="status text-lg font-semibold text-gray-800 dark:text-gray-200 mt-6 mb-2" id="status">X's turn
+
+    <div id="board"
+        class="grid grid-cols-3 gap-2 w-[90vw] max-w-sm aspect-square bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg mb-8">
+        <!-- Cells -->
+        <template id="cell-template">
+            <div class="cell flex items-center justify-center w-20 h-20 bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition"
+                data-index="">
+            </div>
+        </template>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="0"></button>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="1"></button>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="2"></button>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="3"></button>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="4"></button>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:  text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="5"></button>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="6"></button>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="7"></button>
+        <button
+            class="box flex items-center justify-center w-full h-full bg-white dark:bg-gray-700 border-2 border-gray-700 dark:border-gray-400 text-2xl sm:text-4xl text-gray-900 dark:text-gray-100 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition focus:outline-none"
+            data-index="8"></button>
     </div>
-    <button
-        class="reset-btn bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded shadow transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        id="resetBtn">Reset Game</button>
-    <script>
-        // Base JS for future logic
-        const board = document.getElementById('board');
-        const status = document.getElementById('status');
-        const resetBtn = document.getElementById('resetBtn');
-        // Game logic will go here
-    </script>
+    <div id="status" class="status text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        X's turn
+    </div>
+    <button id="resetBtn"
+        class="reset-btn bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded shadow transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+        Reset Game
+    </button>
 </body>
+<script src="js/main.js"></script>
 
 </html>

@@ -4,10 +4,10 @@ A simple implementation of the classic Tic-Tac-Toe game.
 
 ## To-Do List
 - [ ] Implement game logic
-- [ ] Create a responsive game board
-- [ ] Add player turn indication
-- [ ] Detect win conditions
-- [ ] Implement draw condition
+- [X] Create a responsive game board
+- [X] Add player turn indication
+- [X] Detect win conditions
+- [X] Implement draw condition
 - [ ] Add AI opponent (optional)
 - [ ] Improve UI/UX with animations
 - [ ] Add sound effects

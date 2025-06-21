@@ -1,5 +1,7 @@
 # Tic-Tac-Toe
 
+<img src="favicon.png" alt="Favicon" width="128" height="128" />
+
 A simple implementation of the classic Tic-Tac-Toe game.
 
 ## To-Do List

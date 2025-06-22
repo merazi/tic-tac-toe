@@ -23,10 +23,39 @@ const winningConditions = [
     [2, 4, 6]
 ];
 
+function play_sound(which_sound) {
+    switch (which_sound) {
+        case '1':
+            // Play sound for player X
+            const soundX = new Audio('music/x.ogg');
+            soundX.play();
+            break;
+        case '2':
+            // Play sound for player O
+            const soundO = new Audio('music/o.ogg');
+            soundO.play();
+            break;
+        case '3':
+            // Play sound for win
+            const soundWin = new Audio('music/win.ogg');
+            soundWin.play();
+            break;
+        case '4':
+            // Play sound for draw
+            const soundDraw = new Audio('music/draw.ogg');
+            soundDraw.play();
+            break;
+        default:
+            console.error('Invalid sound option');
+            break;
+    }
+}
+
 // Function to handle a cell click
 function handleCellClick(event) {
     const clickedCell = event.target;
     const clickedCellIndex = parseInt(clickedCell.dataset.index); // Get the data-index
+
 
     // Check if the cell is already played or if the game is over
     if (board[clickedCellIndex] !== '' || !gameActive) {
@@ -36,6 +65,8 @@ function handleCellClick(event) {
     // Update the game state
     board[clickedCellIndex] = currentPlayer;
     clickedCell.textContent = currentPlayer; // Update the UI
+
+    play_sound(currentPlayer === 'X' ? '1' : '2'); // Play sound for the current player
 
     checkGameStatus(); // Check for win or draw
     if (gameActive) { // Only switch player if game is still active
@@ -71,6 +102,7 @@ function checkGameStatus() {
         messageText.textContent = `Player ${currentPlayer} Wins!`;
         messageContainer.classList.remove('hidden');
         gameActive = false;
+        play_sound('3'); // Play win sound
         return;
     }
 
@@ -80,6 +112,7 @@ function checkGameStatus() {
         messageText.textContent = `It's a Draw!`;
         messageContainer.classList.remove('hidden');
         gameActive = false;
+        play_sound('4'); // Play draw sound
         return;
     }
 }

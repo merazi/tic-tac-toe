@@ -12,7 +12,7 @@ A simple implementation of the classic Tic-Tac-Toe game.
 - [X] Implement draw condition
 - [ ] Add AI opponent (optional)
 - [ ] Improve UI/UX with animations
-- [ ] Add sound effects
+- [X] Add sound effects
 
 ## Features
 
